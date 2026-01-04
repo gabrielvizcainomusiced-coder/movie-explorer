@@ -3,6 +3,7 @@ import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import MovieGrid from './components/MovieGrid';
 import LoadingSpinner from './components/LoadingSpinner';
+import Footer from './components/Footer';
 import { searchMovies, getPopularMovies } from './services/tmdbAPI';
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <MovieGrid movies={movies} />
         )}
       </main>
+      <Footer />
     </div>
   );
 }

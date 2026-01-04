@@ -188,7 +188,29 @@ body {
   font-size: 1.2rem;
 }
 
-/* Responsive Design */
+/* Footer */
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #0a0a0a;
+  border-top: 1px solid #333;
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.footer-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.movie-icon {
+  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
   .header h1 {
     font-size: 2rem;
