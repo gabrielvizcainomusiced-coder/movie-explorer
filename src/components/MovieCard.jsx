@@ -1,9 +1,9 @@
 import React from 'react';
 import { getImageUrl } from '../services/tmdbAPI';
 
-function MovieCard({ movie }) {
+function MovieCard({ movie, onClick }) {
   return (
-    <div className="movie-card">
+    <div className="movie-card" onClick={() => onClick(movie)}>
       <img 
         src={getImageUrl(movie.poster_path)} 
         alt={movie.title}

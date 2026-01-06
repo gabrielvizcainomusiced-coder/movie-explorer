@@ -1,7 +1,7 @@
 import React from 'react';
 import MovieCard from './MovieCard';
 
-function MovieGrid({ movies }) {
+function MovieGrid({ movies, onMovieClick }) {
   if (movies.length === 0) {
     return (
       <div className="empty-state">
@@ -13,7 +13,11 @@ function MovieGrid({ movies }) {
   return (
     <div className="movie-grid">
       {movies.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} />
+        <MovieCard 
+          key={movie.id} 
+          movie={movie} 
+          onClick={onMovieClick}
+        />
       ))}
     </div>
   );
