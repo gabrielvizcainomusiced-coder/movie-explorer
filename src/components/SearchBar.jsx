@@ -1,13 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function SearchBar({ onSearch }) {
+function SearchBar({ onSearch, onClear }) {
   const [query, setQuery] = useState('');
+
+  // Debounce search - wait 500ms after user stops typing
+  useEffect(() => {
+    if (query.trim() === '') return;
+
+    const timer = setTimeout(() => {
+      onSearch(query);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [query, onSearch]);
 
   function handleSubmit(e) {
     e.preventDefault();
     if (query.trim()) {
       onSearch(query);
     }
+  }
+
+  function handleClear() {
+    setQuery('');
+    onClear();
   }
 
   return (
@@ -19,6 +35,15 @@ function SearchBar({ onSearch }) {
         onChange={(e) => setQuery(e.target.value)}
         className="search-input"
       />
+      {query && (
+        <button 
+          type="button" 
+          onClick={handleClear}
+          className="clear-button"
+        >
+          ✕
+        </button>
+      )}
       <button type="submit" className="search-button">
         🔍 Search
       </button>
