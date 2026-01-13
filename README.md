@@ -194,9 +194,9 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Gabriel Vizcaino**
 
-- Portfolio: [Your Portfolio Link]
+- Portfolio: in progress...
 - GitHub: [@gabrielvizcainomusiced-coder](https://github.com/gabrielvizcainomusiced-coder)
-- LinkedIn: [Your LinkedIn]
+- LinkedIn: (https://www.linkedin.com/in/gabriel-vizcaino-502304396/)
 
 ## 🙏 Acknowledgments
 
