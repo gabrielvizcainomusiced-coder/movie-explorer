@@ -2,7 +2,7 @@
 
 A modern React application for discovering and exploring movies using The Movie Database (TMDB) API.
 
-![Movie Explorer Screenshot](https://via.placeholder.com/800x400/1a1a1a/3b82f6?text=Movie+Explorer+Screenshot)
+![Movie Explorer Homepage](./screenshots/desktop-homepage.png)
 
 ## 🌟 Features
 
@@ -166,14 +166,21 @@ movie-explorer/
 
 ## 📸 Screenshots
 
-### Desktop View
-![Desktop](https://via.placeholder.com/800x500/1a1a1a/3b82f6?text=Desktop+View)
+### Desktop Homepage
+![Desktop Homepage](./screenshots/desktop-homepage.png)
 
-### Mobile View
-![Mobile](https://via.placeholder.com/400x700/1a1a1a/3b82f6?text=Mobile+View)
+### Search Results
+![Search Results](./screenshots/search-results.png)
 
 ### Movie Detail Modal
-![Modal](https://via.placeholder.com/800x500/1a1a1a/3b82f6?text=Movie+Detail)
+![Movie Detail](./screenshots/movie-detail-modal.png)
+
+### Favorites Section
+![Favorites](./screenshots/favorites-section.png)
+
+### Mobile View
+![Mobile View](./screenshots/mobile-view.png)
+
 
 ## 🤝 Contributing
 
