@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 const API_KEY = process.env.TMDB_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-// IMPORTANT: Update CORS for production
+// CORS configuration
 const allowedOrigins = [
   'http://localhost:5173',
   'https://gabrielvizcainomusiced-coder.github.io'
@@ -26,10 +26,6 @@ app.use(cors({
   }
 }));
 
-app.use(express.json());
-
-// Middleware
-app.use(cors());
 app.use(express.json());
 
 // Health check
