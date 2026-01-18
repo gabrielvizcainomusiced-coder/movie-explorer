@@ -1,5 +1,6 @@
 {
   "name": "movie-explorer",
+  "homepage": "https://gabrielvizcainomusiced-coder.github.io/movie-explorer",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
