@@ -9,6 +9,25 @@ const PORT = process.env.PORT || 5000;
 const API_KEY = process.env.TMDB_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
 
+// IMPORTANT: Update CORS for production
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://gabrielvizcainomusiced-coder.github.io'
+];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    // Allow requests with no origin (mobile apps, Postman, etc.)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      return callback(new Error('CORS not allowed'), false);
+    }
+    return callback(null, true);
+  }
+}));
+
+app.use(express.json());
+
 // Middleware
 app.use(cors());
 app.use(express.json());
