@@ -27,6 +27,17 @@ A modern React application for discovering and exploring movies using The Movie 
 - **LocalStorage API** - Client-side data persistence
 - **GitHub Pages** - Hosting and deployment
 
+## 🏗️ Project Structure
+
+This project uses a client-server architecture for security:
+
+- **client/** - React frontend (Vite)
+- **server/** - Express.js backend (handles TMDB API calls)
+
+### Why This Architecture?
+
+The API key is stored **only on the backend** to prevent exposure in the browser. The frontend calls our backend API, which then communicates with TMDB.
+
 ## 📋 Key Features Explained
 
 ### Search Functionality
@@ -65,12 +76,11 @@ A modern React application for discovering and exploring movies using The Movie 
 - npm or yarn
 - TMDB API Key ([Get one here](https://www.themoviedb.org/settings/api))
 
-### Installation Steps
+### Backend Setup
 
-1. **Clone the repository**
+1. **Navigate to server folder**
 ```bash
-   git clone https://github.com/gabrielvizcainomusiced-coder/movie-explorer.git
-   cd movie-explorer
+   cd server
 ```
 
 2. **Install dependencies**
@@ -80,24 +90,44 @@ A modern React application for discovering and exploring movies using The Movie 
 
 3. **Create environment file**
 ```bash
-   # Create .env file in root directory
    touch .env
 ```
 
-4. **Add your TMDB API key**
+4. **Add your TMDB API key to `.env`**
 ```
-   VITE_TMDB_API_KEY=your_api_key_here
+   TMDB_API_KEY=your_api_key_here
+   PORT=5000
 ```
 
-5. **Run development server**
+5. **Start the backend**
 ```bash
    npm run dev
 ```
+   Server will run on `http://localhost:5000`
 
-6. **Open in browser**
+### Frontend Setup
+
+1. **Open new terminal and navigate to client folder**
+```bash
+   cd client
 ```
-   http://localhost:5173
+
+2. **Install dependencies**
+```bash
+   npm install
 ```
+
+3. **Start the development server**
+```bash
+   npm run dev
+```
+   App will open at `http://localhost:5173`
+
+### Running Both Servers
+
+You need **two terminal windows**:
+- Terminal 1: `cd server && npm run dev`
+- Terminal 2: `cd client && npm run dev`
 
 ## 🚢 Deployment
 

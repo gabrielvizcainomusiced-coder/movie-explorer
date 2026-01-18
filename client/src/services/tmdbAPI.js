@@ -1,28 +1,28 @@
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-const BASE_URL = 'https://api.themoviedb.org/3';
+// NEW: Call your backend instead of TMDB directly
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 // Search movies by title
 export async function searchMovies(query) {
   try {
     const response = await fetch(
-      `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`
+      `${API_BASE_URL}/movies/search?query=${query}`
     );
     const data = await response.json();
-    return data.results;
+    return data;
   } catch (error) {
     console.error('Error searching movies:', error);
     return [];
   }
 }
 
-// Get popular movies (for homepage)
+// Get popular movies
 export async function getPopularMovies() {
   try {
     const response = await fetch(
-      `${BASE_URL}/movie/popular?api_key=${API_KEY}`
+      `${API_BASE_URL}/movies/popular`
     );
     const data = await response.json();
-    return data.results;
+    return data;
   } catch (error) {
     console.error('Error fetching popular movies:', error);
     return [];
@@ -33,10 +33,10 @@ export async function getPopularMovies() {
 export async function getGenres() {
   try {
     const response = await fetch(
-      `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`
+      `${API_BASE_URL}/genres`
     );
     const data = await response.json();
-    return data.genres;
+    return data;
   } catch (error) {
     console.error('Error fetching genres:', error);
     return [];
@@ -47,10 +47,10 @@ export async function getGenres() {
 export async function discoverMoviesByGenre(genreId) {
   try {
     const response = await fetch(
-      `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&sort_by=popularity.desc`
+      `${API_BASE_URL}/movies/discover?genreId=${genreId}`
     );
     const data = await response.json();
-    return data.results;
+    return data;
   } catch (error) {
     console.error('Error discovering movies:', error);
     return [];
