@@ -123,47 +123,76 @@ The API key is stored **only on the backend** to prevent exposure in the browser
 ```
    App will open at `http://localhost:5173`
 
-### Running Both Servers
+### Running Locally (Development)
 
 You need **two terminal windows**:
-- Terminal 1: `cd server && npm run dev`
-- Terminal 2: `cd client && npm run dev`
+- Terminal 1: `cd server && npm start` (Backend on port 5000)
+- Terminal 2: `cd client && npm run dev` (Frontend on port 5173)
+
+**Note:** The live demo uses the deployed backend on Render, so you don't need to run the server locally to view the GitHub Pages site.
 
 ## 🚢 Deployment
 
-This project is configured for GitHub Pages deployment:
+### Frontend (GitHub Pages)
+From the `client` folder:
 ```bash
-npm run build
 npm run deploy
 ```
+
+### Backend (Render)
+The backend auto-deploys when you push to the `main` branch on GitHub.
+
+### Backend Deployment (Render)
+
+The backend is deployed on Render at:
+**https://movie-explorer-api-h7gx.onrender.com**
+
+To deploy your own instance:
+1. Create a free account at [Render](https://render.com)
+2. Create a new Web Service
+3. Connect your GitHub repository
+4. Set the following:
+   - **Root Directory**: `server`
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+5. Add environment variable: `TMDB_API_KEY=your_key_here`
 
 ## 📁 Project Structure
 ```
 movie-explorer/
-├── src/
-│   ├── components/
-│   │   ├── Header.jsx          # App header with logo
-│   │   ├── SearchBar.jsx       # Search with debouncing
-│   │   ├── FilterBar.jsx       # Genre and sort filters
-│   │   ├── MovieCard.jsx       # Individual movie display
-│   │   ├── MovieGrid.jsx       # Grid layout container
-│   │   ├── MovieDetail.jsx     # Modal with full details
-│   │   ├── FavoritesList.jsx   # Horizontal favorites scroll
-│   │   ├── LoadingSpinner.jsx  # Loading state component
-│   │   └── Footer.jsx          # App footer
-│   ├── services/
-│   │   └── tmdbAPI.js          # All API call functions
-│   ├── App.jsx                 # Main app component
-│   ├── main.jsx                # React entry point
-│   └── styles.css              # All application styles
-├── .env                        # Environment variables (not in repo)
-├── .gitignore                  # Git ignore rules
-├── index.html                  # HTML entry point
-├── package.json                # Dependencies and scripts
-├── vite.config.js              # Vite configuration
-└── README.md                   # This file
+├── client/                     # Frontend (React + Vite)
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Header.jsx
+│   │   │   ├── SearchBar.jsx
+│   │   │   ├── FilterBar.jsx
+│   │   │   ├── MovieCard.jsx
+│   │   │   ├── MovieGrid.jsx
+│   │   │   ├── MovieDetail.jsx
+│   │   │   ├── FavoritesList.jsx
+│   │   │   ├── LoadingSpinner.jsx
+│   │   │   └── Footer.jsx
+│   │   ├── services/
+│   │   │   └── tmdbAPI.js
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── styles.css
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+├── server/                     # Backend (Express.js)
+│   ├── server.js
+│   ├── package.json
+│   └── .env                   # Not in repo
+├── screenshots/
+│   ├── desktop-homepage.png
+│   ├── search-results.png
+│   ├── movie-detail-modal.png
+│   ├── favorites-section.png
+│   └── mobile-view.png
+├── .gitignore
+└── README.md
 ```
-
 ## 🔑 Key Code Concepts
 
 ### State Management
@@ -183,6 +212,12 @@ movie-explorer/
 - useCallback to prevent unnecessary re-renders
 - CSS animations with hardware acceleration
 - Lazy loading of modal content
+
+### API Configuration
+- Frontend calls backend API (not TMDB directly)
+- Backend URL configured in `client/src/services/tmdbAPI.js`
+- Production: `https://movie-explorer-api-h7gx.onrender.com`
+- Development: `http://localhost:5000`
 
 ## 🎯 Future Enhancements
 

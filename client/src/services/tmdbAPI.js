@@ -1,5 +1,5 @@
-// NEW: Call your backend instead of TMDB directly
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Point to your production backend
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://movie-explorer-api-h7gx.onrender.com/api';
 
 // Search movies by title
 export async function searchMovies(query) {
